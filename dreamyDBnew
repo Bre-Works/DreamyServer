@@ -1,0 +1,10 @@
+CREATE TABLE "Dreamy" ("accountName" REFERENCES "Dreamy_account" ("accountName"), "DreamyID" INT PRIMARY KEY NOT NULL UNIQUE, "Dream_name" TEXT NOT NULL);
+CREATE TABLE "Dreamy_account" ("accountName" TEXT PRIMARY KEY NOT NULL UNIQUE, "email" TEXT NOT NULL, "password" TEXT NOT NULL);
+CREATE TABLE "Milestone" ("DreamyID" REFERENCES "Dreamy" ("DreamyID"), "MilestoneID" INT PRIMARY KEY NOT NULL UNIQUE, "MilestoneName" TEXT NOT NULL);
+CREATE TABLE ToDoList(
+MilestoneID	REFERENCES Milestone(MilestoneID),
+ToDoList	TEXT	NOT NULL);
+INSERT INTO "Dreamy" ( "accountName","DreamyID","Dream_name" ) VALUES ( 'Master','1','Finish Dreamy Project' );
+INSERT INTO "Dreamy_account" ( "accountName","email","password" ) VALUES ( 'Master','master@gmail.com','MyMaster' );
+INSERT INTO "Milestone" ( "DreamyID","MilestoneID","MilestoneName" ) VALUES ( '1','1','Finish sprint backlog' );
+INSERT INTO "ToDoList" ( "MilestoneID","ToDoList" ) VALUES ( '1','Finish the database' );
